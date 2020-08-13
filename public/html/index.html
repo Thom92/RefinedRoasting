@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refined Roasting - Home Page</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="form-default form-login">
+
+            <div id="status-container"></div>
+            <h1>Welcome to<br> Refined Roasting</h1>
+            <p>
+                At Refined Roasting we aim to deliver you the best experience of roasted coffee beans, directly imported from various countries in Africa.
+                Our beans are of high quality, since they are gathered from various rich coffee fields, and our roasting method adds an extra touch, to ensure that our customers gets the greatest experience.
+            </p>
+
+            </form>
+            <img src="./img/refinedRoasting.PNG">
+        <span>
+            <a href="/login">Login</a> |
+            <a href="/contact">Contact</a></span>
+        </div>
+
+    </div>
+    
+    <div class="about-form">
+        <button onclick="aboutUs()">About us
+  
+        <p id="aboutParagraph">
+            We've started off as a small family of 2 members<br> who had a burning passion for the rich<br> experience you could get from extradionary<br> coffee
+        </p>
+    </button>   
+    <button onclick="hideAboutUs()">Hide</button>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+    function aboutUs()
+        {
+                $("#aboutParagraph").show();
+        }
+    function hideAboutUs()
+    {
+        $("#aboutParagraph").hide();
+    }
+    </script>
+</body>
+</html>

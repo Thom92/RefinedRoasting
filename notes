@@ -1,0 +1,8 @@
+${port} //means a dynamic value, with added constant
+´´  //is used, so you can add a template string 
+404 //File not found
+400 //bad request
+200 //request is okay
+#661111 //Color code for Refined Roasting logo
+const { error } = validateUsername(req.body); //object destructuring: unpack values from arrays, or properties from objects, into distinct variables.
+
