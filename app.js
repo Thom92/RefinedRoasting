@@ -1,14 +1,29 @@
-//Framework
-const express = require('express');
-const app = express();
-const session = require('express-session');
-const sessionConfig = require('./configs/session.json')
-const nodemailer = require('nodemailer');
-//Objection
-const { Model } = require('objection')
-Model.knex(require('./database/knexfile.js'))
+const express = require("express")
+const app = express()
 
-//limiter
+//Create server
+const server = require("http").createServer(app)
+
+//Try get PORT env var else default 3000
+const PORT = process.env.PORT || 3000;
+
+//Setup helmet
+const helmet = require("helmet")
+app.use(helmet())
+
+//Setup bodyparsing
+const bodyparser = require("body-parser")
+app.use(bodyparser.urlencoded({extended: false}))
+app.use(bodyparser.json())
+
+//Static serving from ./public
+app.use(express.static("public"))
+
+//Setup express-session
+const session = require("express-session")
+const sessionConfig = require("./configs/session.json")
+
+//Use in-memory session store for now
 app.use(session({
     name: "sid",
     secret: sessionConfig["secret"],
@@ -19,20 +34,11 @@ app.use(session({
         secure: false
     }
 }))
-//PORT to enter
-const PORT = process.env.PORT || 3000;
-//Server
-const server = require('http').createServer(app)
 
-//static serving from ./public
-app.use(express.static('public'))
-//helmet
+//Setup Objection & Knex
+const { Model } = require("objection")
+Model.knex(require("./database/knexfile.js"))
 
-
-//Body-parser
-const bodyparser = require('body-parser')
-app.use(bodyparser.urlencoded({extended: false}))
-app.use(bodyparser.json())
 
 
 //Routes
@@ -42,8 +48,8 @@ app.use('/', require('./routes/login.js'))
 app.use('/', require('./routes/signup.js'))
 app.use('/', require('./routes/contact.js'))
 app.use('/', require('./routes/admin.js'))
+app.use('/', require('./routes/userprofile.js'))
 
-//Set up session
 //Listen on PORT
 app.listen(PORT,  (error) => 
 {

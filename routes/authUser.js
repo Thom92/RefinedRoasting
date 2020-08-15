@@ -1,3 +1,7 @@
+const knex = require("../database/knexfile.js")
+
+//Mail reset dependencies
+const { v4: uuidv4 } = require("uuid")
 const nodemailer = require("nodemailer")
 const emailCreds = require("../configs/mail_credentials.json")
 
@@ -12,6 +16,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-const bcrypt = require('bcrypt')
-const { reponse } = require('express')
+//Importing bcrypt to hash passwords
+const bcrypt = require("bcrypt")
+const { response } = require("express")
 const rounds = 12

@@ -1,11 +1,11 @@
 const { Model } = require("objection")
 
-class Orders extends Model {
+class Order extends Model {
 
     static get tableName() {
-        return "orders"
+        return "order"
     }
 
 }
 
-module.exports = Orders
+module.exports = Order

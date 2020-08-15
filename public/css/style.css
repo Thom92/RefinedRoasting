@@ -3,8 +3,9 @@ html {
 }
 
 body {
-    background-color:  #2E0B0B;
+    background-color:  #4F0909;
 }
+
 h1
 {
     background-color: white;
@@ -16,11 +17,6 @@ h5{
 
 /* Form default style */
 
-div.form-default {
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: rgb(158, 158, 158) 0px 0px 3px 1px;
-}
 #aboutParagraph
 {
     background-color: white;
@@ -48,6 +44,7 @@ div.form-default p{
 div.form-default a {
     color: #661111;
 }
+
 
 /* Login page */
 
@@ -113,4 +110,19 @@ div.form-about
 
 div.form-signup div#options {
     text-align: right;
+}
+.profilePic
+{
+    position:absolute;
+    top:0;
+    left:0;
+    max-width: 25%;
+    height: 25%;
+
+}
+button
+{   
+    background-color: white;
+    border: 0mm;
+    color: #661111;
 }

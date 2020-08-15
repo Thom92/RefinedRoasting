@@ -7,6 +7,7 @@ const knex = require('knex')({
         user : auth['username'],
         password : auth['password'],
         database : auth['schema'],
+        insecureAuth : true
     }
 })
 
