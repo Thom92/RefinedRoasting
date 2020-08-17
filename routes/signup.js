@@ -23,6 +23,7 @@ router.get('/signup', (req, res) =>
 router.post("/signup", ratelimits.signup, async(req, res) =>
 {
     let { username, password, email, firstName, lastName } = req.body
+    
     //Waiting to get a user
     let user = await User.query()
     .select("user.username", "user_information.email")

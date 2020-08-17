@@ -98,6 +98,13 @@ img{
     max-width: 100%;
     height: auto;
 }
+div.form-default {
+    padding: 1em;
+    border-radius: 5px;
+    color: black;   
+    background-color: white;
+    box-shadow: rgb(158, 158, 158) 0px 0px 3px 1px;
+}
 div.form-about
 {
     background-color: white;

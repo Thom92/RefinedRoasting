@@ -8,9 +8,7 @@ module.exports = router;*/
 
 router.get('/', async (req, res) =>
 {
-    const user = await User.query();
 
-    console.log(user[0] instanceof User); // --> true
-    console.log('there are', user.length, 'People in total');
+    res.sendFile("./public/html/index.html", {root: "."})
 })
 module.exports = router;

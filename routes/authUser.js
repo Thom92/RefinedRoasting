@@ -1,6 +1,7 @@
 const knex = require("../database/knexfile.js")
 
 //Mail reset dependencies
+
 const { v4: uuidv4 } = require("uuid")
 const nodemailer = require("nodemailer")
 const emailCreds = require("../configs/mail_credentials.json")

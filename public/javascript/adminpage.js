@@ -1,7 +1,7 @@
 const User = require("../models/User.js")
 
 
-let users =[{User_Id: "1", Username: "1", Email:  "2"}];
+/*let users =[{User_Id: "1", Username: "1", Email:  "2"}];
 function generateTableHead(table, data) {
     let thead = table.createTHead();
     let row = thead.insertRow();
@@ -28,5 +28,32 @@ function generateTableHead(table, data) {
   let data = Object.keys(users[0]);
   generateTableHead(table, data);
   generateTable(table, users);
+*/
+
+  //jQuery ajax request for users table
+  $(document).ready(() =>
+  
+    $.ajax({
+      url: "/users",
+      method: "GET",
+      contentType: "application/json"
+    }).done((data) =>
+    {
+      
+		//Once the request has finished insert data into table
+      $('#userlist')
+      .DataTable({
+        aaData: data,
+        columns: [
+          
+          { title: "Username", data: "username" },
+          { title: "Email", data: "email" },
+          { title: "Firstname", data: "first_name" },
+          { title: "Lastname", data: "last_name" }
+        ]
+      })
+    })
+  )
+  
 
 

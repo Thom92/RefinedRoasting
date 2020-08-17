@@ -39,8 +39,6 @@ app.use(session({
 const { Model } = require("objection")
 Model.knex(require("./database/knexfile.js"))
 
-
-
 //Routes
 app.use('/', require('./routes/index.js'))
 //app.use('/', require('./routes/authorization.js'))
@@ -48,6 +46,7 @@ app.use('/', require('./routes/login.js'))
 app.use('/', require('./routes/signup.js'))
 app.use('/', require('./routes/contact.js'))
 app.use('/', require('./routes/admin.js'))
+app.use('/session', require('./routes/session.js'))
 app.use('/', require('./routes/userprofile.js'))
 
 //Listen on PORT

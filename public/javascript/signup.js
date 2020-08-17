@@ -1,12 +1,5 @@
 $(document).ready(async () =>
 {
-    $("#password").focus(() =>{
-        $("#passlabel").show(250)
-    })
-    .focusout(() => {
-        $("#passlabel").hide(250)
-    })
-
     $("#password, #repassword").keyup(() => {
 
         if ($("#password").val().length == 0 && $("#repassword").val().length == 0) {
@@ -20,11 +13,8 @@ $(document).ready(async () =>
                 $("#repassword").attr("class", "form-control is-invalid")
             }
         } 
-
         else {
             $("#repassword").attr("class", "form-control is-valid")
         }
-
     })
-
 })

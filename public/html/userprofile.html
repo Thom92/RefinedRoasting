@@ -10,17 +10,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="form-default form-signup">
-            <img src="./img/refinedRoasting.PNG">
-            <h3>Profile page</h3>
-         
-            </form>
+    <div class="form-default" style="width: 25%">
+        <table style="width:100%">
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>First name</th>
+              <th>Last name</th>
+            </tr>
+            <tr>
+              <td id="username"></td>
+              <td id="email"></td>
+              <td id="firstname"></td>
+              <td id="lastname"></td>
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <td>Jackson</td>
+              <td>94</td>
+            </tr>
+          </table>
+    
         </div>
-    </div>
+        <button type="submit" id="logut">Logout</button>
   
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="/javascript/userprofile.js"></script>
 </body>
 </html>

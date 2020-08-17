@@ -6,7 +6,8 @@ $(document).ready(() =>
     let username = $("#username").val();
     let password = $("#password").val();
     })
-
+    //Get json file
+    
     fetch("/login", {
         method: "POST",
         headers: {

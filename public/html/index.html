@@ -30,13 +30,12 @@
     </div>
     
     <div class="about-form">
-        <button onclick="aboutUs()">About us
+        <button onclick="" id="aboutbutton">About us
   
-        <p id="aboutParagraph">
+        <p>
             We've started off as a small family of 2 members<br> who had a burning passion for the rich<br> experience you could get from extradionary<br> coffee
         </p>
     </button>   
-    <button onclick="hideAboutUs()">Hide</button>
     </div>
   
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -44,14 +43,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </body>
-<script>function aboutUs()
-    {
-            $("#aboutParagraph").show();
-    }
-</script>
+
+<script>
+        $(document).ready(() =>
+        {
+        $("#aboutbutton").show();
+        $("#aboutbutton").click(() =>
+        {
+            $(this).hide();
+        })
+    })
    
-<script>function hideAboutUs()
-    {
-    $("p").hide();
-    }</script>
+</script>
 </html>
