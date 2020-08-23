@@ -1,5 +1,4 @@
 const session = require("express-session")
-const router = require("../../routes")
 
 $(document).ready(async()=>{
 
@@ -8,7 +7,7 @@ $(document).ready(async()=>{
     .then(async res => await res.json())
     .then(session =>
         {
-            sessionID = session.user.id
+            uid = session.user.id
         })
 
         await fetch(`/user${uid}`)
@@ -54,14 +53,11 @@ $(document).ready(async()=>{
 })
 $(document).ready(() => {
 
-	//Catch the login-form submit event
+	//Catch the logout submit event
     $("#logout").on("submit", (req, res) => 
     {
-
-		//Prevent page from refreshing
-        event.preventDefault()
+        //Prevent page from refreshing
         req.session.destroy()
-
         res.redirect("/")
     })
 })

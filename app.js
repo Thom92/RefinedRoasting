@@ -8,8 +8,6 @@ const server = require("http").createServer(app)
 const PORT = process.env.PORT || 3000;
 
 //Setup helmet
-const helmet = require("helmet")
-app.use(helmet())
 
 //Setup bodyparsing
 const bodyparser = require("body-parser")
@@ -40,14 +38,17 @@ const { Model } = require("objection")
 Model.knex(require("./database/knexfile.js"))
 
 //Routes
+app.use('/', require('./routes/auth.js'))
 app.use('/', require('./routes/index.js'))
-//app.use('/', require('./routes/authorization.js'))
-app.use('/', require('./routes/login.js'))
-app.use('/', require('./routes/signup.js'))
-app.use('/', require('./routes/contact.js'))
 app.use('/', require('./routes/admin.js'))
-app.use('/session', require('./routes/session.js'))
 app.use('/', require('./routes/userprofile.js'))
+app.use('/', require('./routes/api/products.js'))
+app.use('/', require('./contact.js'))
+app.use('/', require('./routes/chat'))
+//Rest API routes
+app.use('/api/sessions', require('./routes/api/session.js'))
+app.use('/api/orderhistory.js', require('./routes/api/orderhistory.js'))
+//Chat server
 
 //Listen on PORT
 app.listen(PORT,  (error) => 

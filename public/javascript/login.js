@@ -1,13 +1,14 @@
-const session = require("express-session");
-
 $(document).ready(() =>
 {
     $("#login-form").on("submit", (event) => {
+
+    event.preventDefault()
+
+
     let username = $("#username").val();
     let password = $("#password").val();
-    })
     //Get json file
-    
+    console.log(username)
     fetch("/login", {
         method: "POST",
         headers: {
@@ -22,13 +23,15 @@ $(document).ready(() =>
     .then((jsonRes) => {
         
         //If login credentials was authenticated
-        if (jsonRes.status == "OK") {
+        if (jsonRes.status == "OK") 
+        {
             
             //Redirect authenticated user to index page
-            window.location.replace("/")
+            window.location.replace('/profile')
         }
     })
 
+})
 })
 
 

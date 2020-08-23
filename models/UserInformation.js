@@ -8,16 +8,16 @@ class UserInformation extends Model {
     
     static get relationMappings() {
 
-        const User = require("./User.js")
+        const Users = require("./User.js")
 
         return {
             //The user this information belongs to
-            user : {
+            users : {
                 relation: Model.HasOneRelation,
-                modelClass: User,
+                modelClass: Users,
                 join: {
-                    from: "user_information.user_information_id",
-                    to: "user.user_id"
+                    from: "user_information.id",
+                    to: "user.id"
                 }
             }
         }

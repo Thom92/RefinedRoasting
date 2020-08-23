@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Refined Roasting - Home Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -24,35 +29,12 @@
             <img src="./img/refinedRoasting.PNG">
         <span>
             <a href="/login">Login</a> |
-            <a href="/contact">Contact</a></span>
+            <a href="/contact">Contact</a>
+            <a href="/about"></a>
+        
+        </span>
         </div>
 
     </div>
-    
-    <div class="about-form">
-        <button onclick="" id="aboutbutton">About us
-  
-        <p>
-            We've started off as a small family of 2 members<br> who had a burning passion for the rich<br> experience you could get from extradionary<br> coffee
-        </p>
-    </button>   
-    </div>
-  
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
 </body>
-
-<script>
-        $(document).ready(() =>
-        {
-        $("#aboutbutton").show();
-        $("#aboutbutton").click(() =>
-        {
-            $(this).hide();
-        })
-    })
-   
-</script>
 </html>

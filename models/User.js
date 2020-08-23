@@ -10,7 +10,6 @@ class User extends Model {
 
         const UserInformation = require("./UserInformation.js")
         const UserRole = require("./UserRole.js")
-        const Store = require("./Store.js")
         
         return {
             //Information about the user
@@ -30,7 +29,7 @@ class User extends Model {
                     from: "user.role_id",
                     to: "user_role.id"
                 }
-            },
+            }
         }
     }
 

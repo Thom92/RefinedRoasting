@@ -2,19 +2,36 @@ html {
     height: 100%;
 }
 
+
 body {
     background-color:  #661111;
 }
 
+h3
+{
+    color: #661111;
+    text-align: center;
+}
+h2
+{
+    background-color: white;
+}
 h1
 {
     background-color: white;
     text-align: center;
 }
+th
+{
+    color: #661111
+}
+td
+{
+    color: #661111
+}
 h5{
     color: #661111
 }
-
 
 /* Form default style */
 
@@ -36,7 +53,7 @@ span
     color: #661111;
 }
 div.form-default h3 {
-    color: #661111;
+    color: black;
 }
 div.form-default p{
     color: black;
@@ -68,23 +85,7 @@ div.form-login div#options {
 
 /* Forgot page */
 
-div.form-forgot {
-    background-color: white;
-    margin-top: 1em;
-    text-emphasis-color: #4F0909;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 30em;
-}
 
-div.form-forgot div#logo {
-    margin: auto;
-    text-align: center;
-}
-
-div.form-forgot div#options {
-    text-align: right;
-}
 
 /* Form page */
 
@@ -99,12 +100,20 @@ img{
     max-width: 100%;
     height: auto;
 }
-div.form-default {
-    padding: 1em;
+div.form-default-userlist {
     border-radius: 5px;
+    position: relative;
     color: black;   
     background-color: white;
     box-shadow: rgb(158, 158, 158) 0px 0px 3px 1px;
+}
+div.form-default
+{
+        padding: 1em;
+        border-radius: 5px;
+        color: black;   
+        background-color: white;
+        box-shadow: rgb(158, 158, 158) 0px 0px 3px 1px;
 }
 div.form-about
 {
@@ -118,15 +127,6 @@ div.form-about
 
 div.form-signup div#options {
     text-align: right;
-}
-.profilePic
-{
-    position:absolute;
-    top:0;
-    left:0;
-    max-width: 25%;
-    height: 25%;
-
 }
 button
 {   

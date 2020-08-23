@@ -1,0 +1,19 @@
+
+//Code for products.html
+//It shows products hard coded
+
+<div class="card">
+  <img src="/img/black_coffee_beans.jpg" id="black_coffee_beans" width="10%">
+  <p class="price">30 kr.</p>
+  <p><button>Tilføj til kurv</button></p>
+</div>
+<div class="card">
+  <img src="/img/white_coffee_beans.jpg" id="white_coffee_beans" width="10%">
+  <p class="price">30 kr.</p>
+  <p><button>Tilføj til kurv</button></p>
+</div>
+<div class="card">
+  <img src="/img/brown_coffee_beans.jpg" id="brown_coffee_beans" width="10%">
+  <p class="price">30 kr.</p>
+  <p><button>Tilføj til kurv</button></p>
+</div>

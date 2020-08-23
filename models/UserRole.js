@@ -9,14 +9,13 @@ class UserRole extends Model {
     static get relationMappings () {
 
         const User = require("./User.js")
-
         return {
             users: {
                 relation: Model.HasManyRelation,
                 modelClass: User,
                 join: {
-                    from: "user_role.role_id",
-                    to: "user.user_id"
+                    from: "user_role.id",
+                    to: "user.id"
                 }
             }
         }

@@ -5,4 +5,5 @@ ${port} //means a dynamic value, with added constant
 200 //request is okay
 #661111 //Color code for Refined Roasting logo
 const { error } = validateUsername(req.body); //object destructuring: unpack values from arrays, or properties from objects, into distinct variables.
+=> function // are anonymous functions with their own special syntax that accept a fixed number of argument
 
