@@ -56,7 +56,7 @@ $(document).ready(() => {
 	//Catch the logout submit event
     $("#logout").on("submit", (req, res) => 
     {
-        //Prevent page from refreshing
+        //Redirect to login page
         req.session.destroy()
         res.redirect("/")
     })

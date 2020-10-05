@@ -7,7 +7,41 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/test.css">
   <script defer src="http://localhost:5000/socket.io/socket.io.js"></script>
-  <script defer src="/javascript/script.js"></script>
+  <script defer src="../javascript/script.js"></script>
+  <style>
+    #message-container {
+      width: 90%;
+      max-width: 500px;
+    }
+
+    #message-container div {
+      background-color: white;
+      padding: 5px;
+    }
+
+    #message-container div:nth-child(2n) {
+      background-color: white;
+    }
+    #chat-container
+    {
+      background-color: white;
+      width: 90%;
+      font-size: large;
+      text-align: center;
+      max-width: 500px;
+    }
+    #send-container {
+      position: fixed;
+      background-color: white;
+      max-width: 500px;
+      width: 90%;
+      display: flex;
+    }
+
+    #message-input {
+      flex-grow: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -29,7 +63,14 @@
     </div>
     
   </nav>
-
+  <div id="chat-container">Chat</div>
+  <div id="message-container"></div>
+  <form id=send-container>
+    <input type="text" id="message-input">
+    <button type="submit" id="send-button">Send</button>
+  </form>
+<div id="user-list-title">Chat list</div>
+<div id="user-list"></div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

@@ -7,12 +7,12 @@ $(document).ready(() =>
 
     let username = $("#username").val();
     let password = $("#password").val();
-    //Get json file
     console.log(username)
+    //Get json file
     fetch("/login", {
         method: "POST",
         headers: {
-            "Content-type": "application/json; charset=UTF-8" 
+            "Content-type": "application/json; charset=UTF-8"
         },
         body: JSON.stringify({
             username: username,
@@ -27,7 +27,8 @@ $(document).ready(() =>
         {
             
             //Redirect authenticated user to index page
-            window.location.replace('/profile')
+            window.location.replace('/')
+
         }
     })
 

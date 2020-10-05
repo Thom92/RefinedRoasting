@@ -3,7 +3,6 @@ const app = express()
 
 //Create server
 const server = require("http").createServer(app)
-
 //Try get PORT env var else default 3000
 const PORT = process.env.PORT || 3000;
 
@@ -38,19 +37,21 @@ const { Model } = require("objection")
 Model.knex(require("./database/knexfile.js"))
 
 //Routes
-app.use('/', require('./routes/auth.js'))
+app.use('/', require('./routes/signup.js'))
 app.use('/', require('./routes/index.js'))
+app.use('', require('./routes/login.js'))
 app.use('/', require('./routes/admin.js'))
-app.use('/', require('./routes/userprofile.js'))
-app.use('/', require('./routes/api/products.js'))
+app.use('/', require('./routes/profile.js'))
+app.use('/', require('./routes/products.js'))
 app.use('/', require('./contact.js'))
 app.use('/', require('./routes/chat'))
 //Rest API routes
-app.use('/api/sessions', require('./routes/api/session.js'))
-app.use('/api/orderhistory.js', require('./routes/api/orderhistory.js'))
+app.use('/', require('./routes/session.js'))
+app.use('/', require('./routes/orderhistory.js'))
 //Chat server
 
 //Listen on PORT
+
 app.listen(PORT,  (error) => 
 {
     if(error)

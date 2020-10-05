@@ -1,18 +1,8 @@
 const router = require('express').Router();
 
-router.get('/*', (req, res, next) =>
+router.get('/admin', (req, res) =>
 {
-
-    if(req.session.user && req.session.user.role == "admin")
-
-    next()
     res.sendFile('./public/html/admin.html', {root: '.' })
-})
-
-router.get("/dashboard", (req, res) => {
-
-    //Render admin dashboard
-    res.sendFile("public/html/admin.html", { root: "." })
 })
 
 module.exports = router;
