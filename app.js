@@ -49,7 +49,8 @@ app.use('/', require('./routes/chat'))
 app.use('/', require('./routes/session.js'))
 app.use('/', require('./routes/orderhistory.js'))
 //Chat server
-
+const chatServer = new(require('./chat_server.js'))(server)
+chatServer.startListening();
 //Listen on PORT
 
 app.listen(PORT,  (error) => 
