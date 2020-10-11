@@ -1,10 +1,10 @@
 html {
     height: 100%;
 }
-
-body {
-    background-color:  #661111;
+body{
+    background-color: #C8C2C2;
 }
+
 
 h1
 {
@@ -14,7 +14,11 @@ h1
 h5{
     color: #661111
 }
-
+button
+{
+    margin-top: 1em;
+    border: 0em;
+}
 
 /* Form default style */
 
@@ -76,6 +80,13 @@ div.form-forgot {
     margin-right: auto;
     max-width: 30em;
 }
+div.form-default-userlist {
+    border-radius: 5px;
+    position: relative;
+    color: black;   
+    background-color: white;
+    box-shadow: rgb(158, 158, 158) 0px 0px 3px 1px;
+}
 
 div.form-forgot div#logo {
     margin: auto;
@@ -127,10 +138,4 @@ div.form-signup div#options {
     max-width: 25%;
     height: 25%;
 
-}
-button
-{   
-    background-color: white;
-    border: 0mm;
-    color: #661111;
 }

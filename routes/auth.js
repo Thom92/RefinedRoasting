@@ -2,17 +2,19 @@ const router = require("express").Router()
 const ratelimits = require("../configs/limiters.js")
 const User = require("../models/User.js")
 const UserInformation = require("../models/UserInformation.js")
+
 const knex = require("../database/knexfile.js")
+
+//Importing bcrypt to hash passwords
 const bcrypt = require("bcrypt")
 const { response } = require("express")
 const rounds = 12
-//Get to login page
-router.get("/login", (req, res) => {
-    //Send the login.html file
+router.get("/signin", (req, res) => {
+    //Send the signin.html file
     //the returned path is to get to the directory where public folder is.
-    res.sendFile("./public/html/login.html", { root: "." })
+    res.sendFile("./public/html/signin.html", { root: "." })
 })
-router.post("/login", ratelimits.login, async (req, res)=>
+router.post("/signin", ratelimits.login, async (req, res)=>
 {
     let { username, password} = req.body
 
@@ -47,4 +49,44 @@ router.post("/login", ratelimits.login, async (req, res)=>
         res.status(401).json({ status: "Unauthorized", message: "invalid-user" })
     }
 })
-module.exports = router;
+router.post('/signout', (req, res) =>
+{
+    req.session.destroy();
+    res.redirect('/');
+})
+router.get('/signup', (req, res) =>
+{
+    res.sendFile('./public/html/signup.html', { root: "." })
+})
+
+//Create new user
+router.post("/signup", ratelimits.signup, async(req, res) =>
+{
+    let { username, password, email, firstName, lastName } = req.body
+    
+    //Waiting to get a user
+    let user = await User.query()
+    .select("user.username", "user_information.email")
+    .joinRelated("user_information")
+    .where("username", username)
+    .orWhere("user_information.email", email)
+
+    if(user > 0)
+    {
+        res.redirect("/Signup#failed");
+    }
+    let hashedPassword = await bcrypt.hash(password, rounds);
+    await User.query().insertGraph({
+        username: username,
+        password: password,
+        user_information:{
+            first_name: firstName,
+            last_name: lastName,
+            email: email
+        }
+    })
+})
+
+
+
+module.exports = router

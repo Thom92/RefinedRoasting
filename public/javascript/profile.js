@@ -51,13 +51,3 @@ $(document).ready(async()=>{
             .then(data => console.log(data))
         })
 })
-$(document).ready(() => {
-
-	//Catch the logout submit event
-    $("#logout").on("submit", (req, res) => 
-    {
-        //Redirect to login page
-        req.session.destroy()
-        res.redirect("/")
-    })
-})

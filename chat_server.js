@@ -1,62 +1,68 @@
-const io = require("http://localhost:3000")
-const esacpe = require('escape-html');
+const escape = require("escape-html")
 
-class ChatServer
-{
+class chatServer {
+
     io;
     users;
 
-    constructor(server)
-    {
-        this.io = require('socket.io')(server)
-        this.users = users;
+    constructor(server) {
+        this.io = require("socket.io")(server)
+        this.users = []
     }
-    
-    startListening()
-    {
-        this.io.on('connection', (socket) =>
-        {
-            //Push socket to the users list
-            this.users.push({user: data.user, id: data.id})
-            //Emit updated users to the clients
-            this.io.sockets.emit('update', getUniqueUserName(this.users))
-            //Emit to all clients that a new user has joined
-            this.io.sockets.emit("user_join", data)
-        })
 
-        socket.on('message', data =>
-        {
-            //Escape data.text to prevent users from changing html
-            data.text = esacpe.text;
-            //Emit data message to all clients
-            this.io.sockets.emit('message', data)
-        })
+    startListening() {
+        this.io.on("connection", (socket) => {
 
-        socket.on('disconnect', () =>
-        {
-            //Go through each user in the list
-            for(let index = 0; index < this.users.length; index++)
-            {
-                //check if socket.id equals user[i].id
-                if(socket.id == this.users[index].id)
-                {
-                    //Emit users that are disconnected
-                    this.io.sockets.emit('user-disconnected', {user: this.users[index].user})
+            socket.on("user-connected", (data) => {
 
-                    //remove user for the user-list
-                    this.users.splice(index, 1)
+                //Push socket to the users list
+                this.users.push({user: data.user, id: socket.id})
+
+                //Emit updated users list to clients
+                this.io.sockets.emit("update", getUniqueUsernameArray(this.users))
+
+                //Emit to all clients that a new user has joined
+                this.io.sockets.emit("user-connected", data )
+            })
+
+            socket.on("message", (data) => {
+                
+                //Escape data.text here so users cant change html
+                data.text = escape(data.text)
+
+                //Emit that message data to all clients/sockets
+                this.io.sockets.emit("message", data)
+            })
+
+            socket.on("user-disconnected", () => {
+
+                //Go through each user in users list
+                for (let index = 0; index < this.users.length; index++) {
+
+                    //Check if socket.id equals users[i].id
+                    if (socket.id == this.users[index].id) {
+
+                        //Emit user has disconnected to clients
+                        this.io.sockets.emit("user-disconnected", { user: this.users[index].user })
+                        
+                        //Remove user from users with that id
+                        this.users.splice(index, 1)
+                    }
                 }
-            }
-            this.io.sockets.emit('update', getUniqueUserName(this.users))
+
+                //Emit updated users list to clients
+                this.io.sockets.emit("update", getUniqueUsernameArray(this.users))
+            })
+
         })
-
-
     }
-
 }
-function getUniqueUserName(users) {
+
+function getUniqueUsernameArray(users) {
     let usernames = users.map(a => a.user)
     let uniques = new Set(usernames)
     return Array.from(uniques)
 }
-module.exports = ChatServer;
+
+
+module.exports = chatServer

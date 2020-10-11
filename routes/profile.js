@@ -1,28 +1,19 @@
 const router = require("express").Router()
-const User = require("../models/User")
-const knex = require("../database/knexfile.js")
-let userId = []
  
-router.get("/profile", async (req, res) => 
-{    
-/*
-    //Retrieve sign up information
-    let { username, password, email, firstname, lastname } = req.body
+//Intercept every profile/ request and make sure session is authenticated.
+router.get("/*", (req, res, next) => {
 
-    //Check for already existing username & email
-    let users = await User.query()
-    .select("user.username")
-    //Send the signup.html file
-    userId.map[users]
-    console.log(username)*/
-
-    res.sendFile("./public/html/profile.html", {root: "."})
+    //Make sure session is authenticated
+    if (req.session.authenticated) {
+        next()
+    }
+    else {
+        //Set status to 401 (Unauthorized) and redirect to login
+        res.status(401).redirect("/signin")
+    }
 })
-
-/*router.get("/userprofile/:id", (req, res)=>
+router.get('/', (req, res) =>
 {
-    users.find()
-    
-    //sendFile("/public/html/userprofile.html", {root: "."})
-})*/
+    res.sendFile('/public/html/profile.html', {root: "."})
+})
 module.exports = router;

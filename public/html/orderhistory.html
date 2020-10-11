@@ -5,24 +5,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/test.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#" style="color: #661111">Refined Roasting</a>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#" style="color: #661111;">Refined Roasting</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/profile"style="color: #661111">Home</a></li>
+        <li><a href="/store" style="color: #661111">Store</a></li>
+        <li class="active"><a href="/orderhistory" style="color: #661111">Order history</a></li>
+        <li><a href="/chat" style="color: #661111">Chat</a></li>
+        <li><a href="/" style="color: #661111" id="signout" type="submit">Sign out</button></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/profile" style="color: #661111">Home</a></li>
-      <li><a href="/products" style="color: #661111">Products</a></li>
-      <li class="active"><a href="/orderhistory" style="color: #661111">Order history</a></li>
-      <li><a href="/chat" style="color: #661111">Chat</a></li>
-    </ul>
-  </div>
-  <button style="padding: 10px; margin: 10px; color: #661111">Logout</button>
-</nav>
+  
+  </nav>
+
+
 <div class="form-default-userlist" style="width: 25%; float:left; height:100px; margin: 3px;">
   <h3>Order history
     <br>
@@ -30,6 +33,7 @@
     <table style="width:100%">
         <tr>
           <th>Name</th>
+          <th>Item ID</th>
           <th>Price</th>
           <th>Date</th>
         </tr>

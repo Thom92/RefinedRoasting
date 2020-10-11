@@ -5,74 +5,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/test.css">
-  <script defer src="http://localhost:5000/socket.io/socket.io.js"></script>
-  <script defer src="../javascript/script.js"></script>
+  <link rel="stylesheet" href="/css/chat.css">
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="../javascript/chat_client.js"></script>
   <style>
-    #message-container {
-      width: 90%;
-      max-width: 500px;
-    }
-
-    #message-container div {
-      background-color: white;
-      padding: 5px;
-    }
-
-    #message-container div:nth-child(2n) {
-      background-color: white;
-    }
-    #chat-container
-    {
-      background-color: white;
-      width: 90%;
-      font-size: large;
-      text-align: center;
-      max-width: 500px;
-    }
-    #send-container {
-      position: fixed;
-      background-color: white;
-      max-width: 500px;
-      width: 90%;
-      display: flex;
-    }
-
-    #message-input {
-      flex-grow: 1;
-    }
-  </style>
+ 
+    </style>
 </head>
 <body>
-
+<header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" style="color: #661111">Refined Roasting</a>
+        <a class="navbar-brand" href="#" style="color: #661111;">Refined Roasting</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/profile" style="color: #661111">Home</a></li>
-        <li><a href="/products" style="color: #661111">Products</a></li>
+        <li><a href="/profile"style="color: #661111">Home</a></li>
+        <li><a href="/store" style="color: #661111">Store</a></li>
         <li><a href="/orderhistory" style="color: #661111">Order history</a></li>
         <li class="active"><a href="/chat" style="color: #661111">Chat</a></li>
-        <ul class="nav navbar-nav navbar-right">
-          <button style="padding: 15px; background-color: #661111; color: white" id="logout" type="submit">Logout</button>
-        </ul>
+        <li><a href="/" style="color: #661111" id="signout" type="submit">Sign out</button></li>
       </ul>
-      
-    </div>
     
+    </div>
+  
   </nav>
-  <div id="chat-container">Chat</div>
-  <div id="message-container"></div>
-  <form id=send-container>
-    <input type="text" id="message-input">
-    <button type="submit" id="send-button">Send</button>
-  </form>
-<div id="user-list-title">Chat list</div>
-<div id="user-list"></div>
+</header>
+
+<div id="message-container"></div>
+<form id="send-container">
+  <input type="text" id="message-input">
+  <button type="submit" id="send-button">Send</button>
+</form>
+
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="../javascript/chat_client.js"></script>
 </body>
 </html>

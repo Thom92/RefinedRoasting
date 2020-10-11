@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/test.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -14,24 +14,30 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#" style="color: #661111;">Refined Roasting</a>
     </div>
+    
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/profile"style="color: #661111">Home</a></li>
-      <li><a href="/products" style="color: #661111">Products</a></li>
+      <li class="active"><a href=""style="color: #661111">Home</a></li>
+      <li><a href="/store" style="color: #661111">Store</a></li>
       <li><a href="/orderhistory" style="color: #661111">Order history</a></li>
       <li><a href="/chat" style="color: #661111">Chat</a></li>
+     
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <button style="padding: 15px; background-color: #661111; color: white" id="logout" type="submit">Logout</button>
+      <form method="POST" action="/signout">
+        <li>
+            <button style="color: #661111" id="signout" type="submit">Sign out</button>
+        </li>
+        </form>
     </ul>
   </div>
 
 </nav>
-<div>
+
 
 
 </div>
 <div class="form-default-userlist" style="width: 30%; float:left; height:100px; margin: 3px;">
-  <h3>User list
+  <h3>User Info
     <br>
   </h3>
     <table style="width:100%">
@@ -54,6 +60,7 @@
 </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <script src="/javascript/test.js"></script>
+
+     
 </body>
 </html>

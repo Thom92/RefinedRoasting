@@ -7,9 +7,8 @@ $(document).ready(() =>
 
     let username = $("#username").val();
     let password = $("#password").val();
-    console.log(username)
     //Get json file
-    fetch("/login", {
+    fetch("/signin", {
         method: "POST",
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -22,13 +21,10 @@ $(document).ready(() =>
     .then(response => response.json())
     .then((jsonRes) => {
         
-        //If login credentials was authenticated
+        //If sign in credentials was authenticated
         if (jsonRes.status == "OK") 
         {
-            
-            //Redirect authenticated user to index page
-            window.location.replace('/')
-
+            window.location.replace('/profile')
         }
     })
 

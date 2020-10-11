@@ -6,4 +6,4 @@ router.get('/contact', (req, res) =>
 {
     res.sendFile('/public/html/contact.html', {root: "."}) 
 })
-module.exports = router
+module.exports = router;

@@ -37,20 +37,22 @@ const { Model } = require("objection")
 Model.knex(require("./database/knexfile.js"))
 
 //Routes
-app.use('/', require('./routes/signup.js'))
+app.use('/', require('./routes/auth.js'))
 app.use('/', require('./routes/index.js'))
-app.use('', require('./routes/login.js'))
-app.use('/', require('./routes/admin.js'))
-app.use('/', require('./routes/profile.js'))
-app.use('/', require('./routes/products.js'))
 app.use('/', require('./contact.js'))
-app.use('/', require('./routes/chat'))
+app.use('/admin', require('./routes/admin.js'))
+app.use('/profile', require('./routes/profile.js'))
+app.use('/store', require('./routes/store.js'))
+app.use('/chat', require('./routes/chat.js'))
+app.use('/orderhistory', require('./routes/orderhistory.js'))
 //Rest API routes
-app.use('/', require('./routes/session.js'))
-app.use('/', require('./routes/orderhistory.js'))
+app.use("/api/session", require("./routes/api/session.js"))
+app.use("/api/users", require("./routes/api/user.js"))
 //Chat server
 const chatServer = new(require('./chat_server.js'))(server)
 chatServer.startListening();
+//Use public files
+app.use(express.static(__dirname + '/public'));
 //Listen on PORT
 
 app.listen(PORT,  (error) => 
