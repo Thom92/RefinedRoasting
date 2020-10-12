@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 
 //Create server
-const server = require("http").createServer(app)
+var server = require("http").createServer(app)
 //Try get PORT env var else default 3000
 const PORT = process.env.PORT || 3000;
 
@@ -34,7 +34,7 @@ app.use(session({
 
 //Setup Objection & Knex
 const { Model } = require("objection")
-Model.knex(require("./database/knexfile.js"))
+Model.knex(require("./configs/database/knexfile.js"))
 
 //Routes
 app.use('/', require('./routes/auth.js'))
@@ -49,7 +49,7 @@ app.use('/orderhistory', require('./routes/orderhistory.js'))
 app.use("/api/session", require("./routes/api/session.js"))
 app.use("/api/users", require("./routes/api/user.js"))
 //Chat server
-const chatServer = new(require('./chat_server.js'))(server)
+const chatServer = new (require('./chat_server.js'))(server);
 chatServer.startListening();
 //Use public files
 app.use(express.static(__dirname + '/public'));

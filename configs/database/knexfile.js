@@ -1,4 +1,4 @@
-const auth = require('../configs/authentication.json');
+const auth = require('../authentication.json');
 
 const knex = require('knex')({
     client : 'mysql',

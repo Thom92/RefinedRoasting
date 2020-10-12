@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const User = require("../../models/User.js")
-const Knex = require("../../database/knexfile.js")
+const Knex = require("../../configs/database/knexfile.js")
 
 router.get("/*", (req, res, next) => {
 

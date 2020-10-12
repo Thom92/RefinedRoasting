@@ -3,7 +3,7 @@ const ratelimits = require("../configs/limiters.js")
 const User = require("../models/User.js")
 const UserInformation = require("../models/UserInformation.js")
 
-const knex = require("../database/knexfile.js")
+const knex = require("../configs/database/knexfile.js")
 
 //Importing bcrypt to hash passwords
 const bcrypt = require("bcrypt")
