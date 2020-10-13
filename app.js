@@ -2,9 +2,34 @@ const express = require("express")
 const app = express()
 
 //Create server
-var server = require("http").createServer(app)
+const server = require("http").createServer(app)
+const io = require('socket.io')(server)
+const users = {}
+const serverPort = process.env.PORT || 4000;
+server.listen('4000', () =>
+{
+    console.log(`Listening on port: ${serverPort}`)
+})
+
+io.on('connection', (socket) => {
+  socket.on('new-user', name => {
+    users[socket.id] = name
+    socket.broadcast.emit('user-connected', name)
+  })
+  socket.on('send-chat-message', message => {
+    socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
+  })
+  socket.on('disconnect', () => {
+    socket.broadcast.emit('user-disconnected', users[socket.id])
+    delete users[socket.id]
+  })
+})
+
+
+
+
 //Try get PORT env var else default 3000
-const PORT = process.env.PORT || 3000;
+const appPORT = process.env.PORT || 8000;
 
 //Setup helmet
 
@@ -14,7 +39,7 @@ app.use(bodyparser.urlencoded({extended: false}))
 app.use(bodyparser.json())
 
 //Static serving from ./public
-app.use(express.static("public"))
+app.use(express.static("./public"))
 
 //Setup express-session
 const session = require("express-session")
@@ -39,27 +64,25 @@ Model.knex(require("./configs/database/knexfile.js"))
 //Routes
 app.use('/', require('./routes/auth.js'))
 app.use('/', require('./routes/index.js'))
-app.use('/', require('./contact.js'))
+app.use('/', require('./routes/contact.js'))
 app.use('/admin', require('./routes/admin.js'))
+app.use('/contact', require('./routes/contact'))
 app.use('/profile', require('./routes/profile.js'))
 app.use('/store', require('./routes/store.js'))
 app.use('/chat', require('./routes/chat.js'))
+app.use('/chattest', require('./routes/chattest.js'));
 app.use('/orderhistory', require('./routes/orderhistory.js'))
 //Rest API routes
 app.use("/api/session", require("./routes/api/session.js"))
 app.use("/api/users", require("./routes/api/user.js"))
-//Chat server
-const chatServer = new (require('./chat_server.js'))(server);
-chatServer.startListening();
-//Use public files
-app.use(express.static(__dirname + '/public'));
+
 //Listen on PORT
 
-app.listen(PORT,  (error) => 
+app.listen(appPORT,  (error) => 
 {
     if(error)
     {
         console.log(error);
     }
-    console.log(`listening on: ${PORT}`)
+    console.log(`listening on: ${appPORT}`)
 });   

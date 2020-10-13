@@ -5,8 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/gchatstyle.css">
-  <link rel="stylesheet" href="../css/gchat.css">
+  <script defer src="http://localhost:4000/socket.io/socket.io.js"></script>
+  <script defer src="../javascript/script.js"></script>
+  <link rel="stylesheet" href="../css/chat.css">
 
 </head>
 <body>
@@ -14,10 +15,10 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" style="color: #661111;">Refined Roasting</a>
+        <a  href="/" class="navbar-brand" href="#" style="color: #661111;">Refined Roasting</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/profile"style="color: #661111">Home</a></li>
+        <li><a href="/profile"style="color: #661111">Profile</a></li>
         <li><a href="/store" style="color: #661111">Store</a></li>
         <li><a href="/orderhistory" style="color: #661111">Order history</a></li>
         <li class="active"><a href="/chat" style="color: #661111">Chat</a></li>
@@ -33,89 +34,15 @@
   
   </nav>
 </header>
-<div id="navbar-fragment"></div>
-
-    <!--The container holding all the content-->
-    <div id="container">
-        <div id="main">
-            <!--Make space between nav and content-->
-            <div id="nav-margin-bottom-div"></div>
-
-            <!--Hidden input with username-->
-            <input type="hidden" id="username-input" value="">
-
-            <!--Page main container-->
-            <div class="container">
-
-                <!--Main chat container-->
-                <div id="chat-container">
-
-                    <div id="chat">
-
-                        <!--Middle row divs-->
-                        <div id="middle-row-div" class="row no-gutters">
-
-                            <!--Messages column div-->
-                            <div id="chat-messages-container" class="col-9">
-
-                                <div id="chat-messages">
-
-                                </div>
-
-                            </div>
-
-                            <!--Users column div-->
-                            <div id="user-list-container" class="col-3">
-
-                                <!--User list header div-->
-                                <div id="user-list-header">
-                                    <span>
-                                        <h5>Users</h5>
-                                    </span>
-                                </div>
-
-                                <!--User list div-->
-                                <div id="user-list">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!--Start of chat message form-->
-                        <form id="message-form">
-
-                            <!--Row for message inputs -->
-                            <div id="chat-inputs-container" class="row no-gutters">
-
-                                <!--Column for message input-->
-                                <div class="col-9">
-                                    <input type="text" id="message-input" autocomplete="off" required>
-                                </div>
-
-                                <!--Column for submit button-->
-                                <div class="col-3">
-                                    <button type="submit" id="message-button">Send</button>
-                                </div>
-
-                            </div>
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="message-container"></div>
+<form id="send-container">
+  <input type="text" id="message-input">
+  <button type="submit" id="send-button">Send</button>
+</form>
 
 
- 
-
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <script src="../javascript/chat_client.js"></script>
      
 
 </script>
